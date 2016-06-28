@@ -29,7 +29,7 @@ int calc(int k)
 			node = (treeNode*)&node->sub[sub];
 			if (node->fail)
 				break;
-			pos = (pos + sub) % i;
+			pos = (pos + sub + i) % i;
 			if (pos-- < k)
 			{
 				node->fail = true;
@@ -46,7 +46,7 @@ int main()
 {
 	int k, m;
 
-	for (cin >> k, m = 2*k-1; k != 0; cin >> k, m = 2*k-1)
+	for (cin >> k; k != 0; cin >> k)
 	{
 		cout << calc(k) << endl;
 	}
